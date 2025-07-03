@@ -223,14 +223,14 @@ model/
 
 # Ignore all contents under ./data, but keep the ./data folder
 data/*
-!README.md
+!data/.gitkeep
 
 # Ignore the ./images folder and its contents
 images/
 
 # Ignore all contents in ./storage, but keep the ./storage folder
 storage/*
-!README.md
+!storage/.gitkeep
 
 # Ignore virtual environment folder
 venv/
