@@ -149,7 +149,7 @@ streamlit run app.py
 
 ## 7. 付録
 
-- 埋め込み処理ライブラリ：[E5Embedding][E5Embedding]
+- 埋め込み処理アルゴリズム：[E5Embedding][E5Embedding]
 - 大規模言語モデル（LLM）：[LlmJp][LlmJp]
 - ユーザーインターフェース（UI）：[streamlit][streamlit]
 
