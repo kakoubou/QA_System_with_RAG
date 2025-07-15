@@ -226,7 +226,7 @@ data/*
 !data/.gitkeep
 
 # Ignore the ./images folder and its contents
-images/
+#images/
 
 # Ignore all contents in ./storage, but keep the ./storage folder
 storage/*
