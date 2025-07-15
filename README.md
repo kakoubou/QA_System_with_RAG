@@ -5,8 +5,7 @@
 ## 1. プロジェクト概要
 
 本プロジェクトは、RAG（Retrieval-Augmented Generation）技術を用いて構築されたQA（質問応答）システムです。  
-[Yahooニュース](https://news.yahoo.co.jp/)から取得したニュースをデータベースとして活用し、RAG技術によりその内容を検索・抽出したうえで、  
-[streamlit][streamlit]を用いてユーザーとの対話インターフェースを実現しています。
+[Yahooニュース](https://news.yahoo.co.jp/)から取得したニュースをデータベースとして活用し、RAG技術によりその内容を検索・抽出したうえで、[streamlit][streamlit]を用いてユーザーとの対話インターフェースを実現しています。
 
 ---
 
@@ -63,8 +62,8 @@ RAG（検索拡張生成）は、情報検索（Retrieval）とテキスト生�
 
 ### 言語モデルの設定
 
-本プロジェクトでは、ベクトルデータベースの生成および質問応答の際のベクトルマッチングに用いる埋め込み（embedding）アルゴリズムとして、  
-Google Researchが提案した[E5Embedding][E5Embedding]を採用しています。[E5Embedding][E5Embedding]は日本語に対する適応性が高い特徴を持っています。  
+本プロジェクトでは、ベクトルデータベースの生成および質問応答の際のベクトルマッチングに用いる埋め込み（embedding）アルゴリズムとして、Google Researchが提案した[E5Embedding][E5Embedding]を採用しています。  
+[E5Embedding][E5Embedding]は日本語に対する適応性が高い特徴を持っています。  
 また、テキスト生成に使用する大規模言語モデル（LLM）としては、[LlmJp][LlmJp]を使用しています。  
 [LlmJp][LlmJp]は日本語に特化した高品質なオープンソースの大規模言語モデルを構築することを目的とし、複数の組織が協力して開発しているプロジェクトです。  
 言語モデルの設定は、Hugging FaceのTransformersライブラリを用いてローカル環境にデプロイおよび呼び出しを行っています。  
@@ -77,6 +76,8 @@ Google Researchが提案した[E5Embedding][E5Embedding]を採用しています
 本プロジェクトでは、[Yahooニュース](https://news.yahoo.co.jp/)から一部のニュース記事を抜粋し、以下の図のようにテキスト（.txt）形式でdata/に保存しています。  
 
 <img src="images/image3.png" width="500"/>
+
+---
 
 データ準備が完了し、RAGシステムを起動した際に、`data/`フォルダ内のデータベーステキストがまだベクトル化されていない場合、  
 システムは自動的に埋め込みアルゴリズムを用いてデータベーステキストをベクトル化し、その結果を`storage/`にvector databaseとして保存します。  
@@ -93,7 +94,7 @@ PROMPT_TEMPLATE = dict(
             回答はわかりやすく、自然言語で150文字数以内にお願いします。""",
 
     LLMJP_PROMPT_TEMPALTE="""以下のデータベースを参考にして、ユーザーの質問に答えてください。        
-    　　　　　　質問: {question}
+    　　　　 質問: {question}
             参考用のデータベース：
             ···
             {context}
@@ -117,7 +118,7 @@ PROMPT_TEMPLATE = dict(
 streamlit run app.py
 ```
 
-実行後、ブラウザが自動的にローカルホストのポート `localhost:8501` を開き、[Streamlit][streamlit]を用いて構築されたRAG質問応答の画面に遷移します。  
+実行後、ブラウザが自動的にローカルホストのポート `localhost:8501` を開き、[streamlit][streamlit]を用いて構築されたRAG質問応答の画面に遷移します。  
 
 <img src="images/image4.png" width="500"/>
 
@@ -138,7 +139,7 @@ streamlit run app.py
 
 ## 6. まとめと考察
 
-本プロジェクトは、RAGアルゴリズムと[Streamlit][Streamlit]ツールを用いてローカル環境で動作するRAG質問応答システムを構築しました。  
+本プロジェクトは、RAGアルゴリズムと[streamlit][streamlit]ツールを用いてローカル環境で動作するRAG質問応答システムを構築しました。  
 今後は、以下の改善によりクラウド環境への展開も期待されます。  
 - GPTなどのオンラインAPIをLLMとして活用し、ローカルリソースの負荷を軽減する。
 - Streamlitアプリケーションをクラウドプラットフォームにデプロイし、パブリックアクセスを可能にする。
